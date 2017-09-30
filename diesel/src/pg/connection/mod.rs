@@ -84,7 +84,7 @@ impl Connection for PgConnection {
         T: QueryFragment<Pg> + QueryId,
         U: QueryableByName<Pg>,
     {
-        let (query, params) = try!(self.prepare_query(source));
+        let (query, params) = self.prepare_query(source)?;
         query
             .execute(&self.raw_connection, &params)
             .and_then(|r| NamedCursor::new(r).collect())
