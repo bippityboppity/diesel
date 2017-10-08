@@ -97,6 +97,19 @@ impl Display for TableDefinitions {
         for foreign_key in &self.fk_constraints {
             writeln!(f, "{}", Joinable(foreign_key))?;
         }
+
+        if self.tables.len() > 1 {
+            write!(f, "\nenable_multi_table_joins!(")?;
+            {
+                let mut out = PadAdapter::new(f);
+                write!(out, "\n")?;
+                for table in &self.tables {
+                    writeln!(out, "{},", table.name.name)?;
+                }
+            }
+            writeln!(f, ");")?;
+        }
+
         Ok(())
     }
 }

@@ -39,10 +39,17 @@ for Rust libraries in [RFC #1105](https://github.com/rust-lang/rfcs/blob/master/
 * `TextExpressionMethods` is now implemented for expressions of type
   `Nullable<Text>` as well as `Text`.
 
+* `enable_multi_table_joins!` can now take more than 2 tables, and is the same
+  as invoking it separately for every combination of those tables.
+
 ### Changed
 
 * The signatures of `QueryId`, `Column`, and `FromSqlRow` have all changed to
   use associated constants where appropriate.
+
+* You will now need to invoke `enable_multi_table_joins!` any time two tables
+  appear together in the same query, even if there is a `joinable!` invocation
+  for those tables.
 
 ### Deprecated
 

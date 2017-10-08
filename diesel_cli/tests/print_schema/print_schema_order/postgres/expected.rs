@@ -39,3 +39,9 @@ table! {
         id -> Int4,
     }
 }
+
+enable_multi_table_joins!(
+    abc,
+    def,
+    ghi,
+);

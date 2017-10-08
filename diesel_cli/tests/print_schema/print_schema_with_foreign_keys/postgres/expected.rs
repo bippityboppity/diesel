@@ -54,3 +54,9 @@ table! {
 
 joinable!(comments -> posts (post_id));
 joinable!(posts -> users (user_id));
+
+enable_multi_table_joins!(
+    comments,
+    posts,
+    users,
+);

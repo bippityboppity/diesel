@@ -34,4 +34,9 @@ pub mod custom_schema {
     }
     
     joinable!(b -> a (parent));
+    
+    enable_multi_table_joins!(
+        a,
+        b,
+    );
 }

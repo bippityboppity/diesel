@@ -9,3 +9,8 @@ table! {
         id -> Integer,
     }
 }
+
+enable_multi_table_joins!(
+    users1,
+    users2,
+);

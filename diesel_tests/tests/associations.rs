@@ -277,6 +277,8 @@ fn custom_foreign_key() {
         }
     }
 
+    enable_multi_table_joins!(users1, posts1);
+
     #[derive(Clone, Debug, PartialEq, Identifiable, Queryable)]
     #[table_name = "users1"]
     pub struct User {

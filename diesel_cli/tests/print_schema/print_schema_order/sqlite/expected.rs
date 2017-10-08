@@ -39,3 +39,9 @@ table! {
         id -> Nullable<Integer>,
     }
 }
+
+enable_multi_table_joins!(
+    abc,
+    def,
+    ghi,
+);

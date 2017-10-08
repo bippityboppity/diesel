@@ -300,8 +300,3 @@ pub fn find_user_by_name(name: &str, connection: &TestConnection) -> User {
         .first(connection)
         .unwrap()
 }
-
-enable_multi_table_joins!(users, comments);
-enable_multi_table_joins!(posts, likes);
-enable_multi_table_joins!(followings, likes);
-enable_multi_table_joins!(followings, comments);
