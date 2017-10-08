@@ -344,6 +344,14 @@ mod tests {
         }
     }
 
+    test_struct_definition! {
+        named_struct_with_unusual_reference_type,
+        struct NewUser<'a> {
+            name: &'a String,
+            hair_color: Option<&'a String>,
+        }
+    }
+
     #[test]
     fn named_struct_with_renamed_field() {
         struct NewUser {
